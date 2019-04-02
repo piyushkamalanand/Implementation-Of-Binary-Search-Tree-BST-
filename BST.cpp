@@ -41,6 +41,28 @@ bool Search(BSTnode* root,int data)// Searching Element
     else
         return Search(root->right,data);
 }
+int MaxElement(BSTnode* root)
+{
+    if(root->right!=NULL)
+    {
+        return MaxElement(root->right);
+    }
+    else
+    {
+        return root->data;
+    }
+}
+int MinElement(BSTnode* root)
+{
+    if(root->left!=NULL)
+    {
+        return MinElement(root->left);
+    }
+    else
+    {
+        return root->data;
+    }
+}
 int main()
 {
     BSTnode* root=NULL;  //create empty tree
@@ -63,4 +85,6 @@ int main()
     {
         cout<<"Not Found"<<endl;
     }
+    cout<<"Max Element - "<<MaxElement(root)<<endl;
+    cout<<"Min Element - "<<MinElement(root)<<endl;
 }
